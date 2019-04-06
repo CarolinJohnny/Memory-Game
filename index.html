@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Carolins Card Game</title>
+  <meta name="description" content="">
+  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+  <div class="modal">
+    <div class="content">
+      <h1>Congratulations! You won!</h1>
+      <h2>With <span class="personal">2</span> Moves and <span class="totalStars">1</span> Stars in <span class="watch">99:99</span>.</h2>
+      <h3>Woooooo!</h3>
+      <button class="again-button" onclick="startGame()">Play again</button>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <header>
+      <h1>Matching Game</h1>
+    </header>
+
+    <section class="score-panel">
+      <ul class="stars">
+        <li><i class="fa fa-star"></i></li>
+        <li><i class="fa fa-star"></i></li>
+        <li><i class="fa fa-star"></i></li>
+      </ul>
+
+      <span class="moves" id="moves">0</span> Moves
+
+      <span class="timer" id="stopwatch">00:00</span>
+
+      <div class="restart">
+        <i class="fa fa-repeat" onclick="startGame()"></i>
+      </div>
+    </section>
+
+    <ul class="deck" id="deck">
+      <li class="card" type="diamond">
+        <i class="fa fa-diamond"></i>
+      </li>
+      <li class="card" type="plane">
+        <i class="fa fa-paper-plane-o"></i>
+      </li>
+      <li class="card" type="anchor">
+        <i class="fa fa-anchor"></i>
+      </li>
+      <li class="card" type="bolt">
+        <i class="fa fa-bolt"></i>
+      </li>
+      <li class="card" type="cube">
+        <i class="fa fa-cube"></i>
+      </li>
+      <li class="card" type="anchor">
+        <i class="fa fa-anchor"></i>
+      </li>
+      <li class="card" type="leaf">
+        <i class="fa fa-leaf"></i>
+      </li>
+      <li class="card" type="bicycle">
+        <i class="fa fa-bicycle"></i>
+      </li>
+      <li class="card" type="diamond">
+        <i class="fa fa-diamond"></i>
+      </li>
+      <li class="card" type="bomb">
+        <i class="fa fa-bomb"></i>
+      </li>
+      <li class="card" type="leaf">
+        <i class="fa fa-leaf"></i>
+      </li>
+      <li class="card" type="bomb">
+        <i class="fa fa-bomb"></i>
+      </li>
+      <li class="card" type="bolt">
+        <i class="fa fa-bolt"></i>
+      </li>
+      <li class="card" type="bicycle">
+        <i class="fa fa-bicycle"></i>
+      </li>
+      <li class="card" type="plane">
+        <i class="fa fa-paper-plane-o"></i>
+      </li>
+      <li class="card" type="cube">
+        <i class="fa fa-cube"></i>
+      </li>
+    </ul>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
