@@ -2,6 +2,7 @@
  let cards = [...card];
  const deck = document.getElementById("deck");
  var flipped = [];
+ var matchedCards = [];
 
  var display;
  let minutes = 0;
@@ -31,20 +32,22 @@
      array[currentIndex] = array[randomIndex];
      array[randomIndex] = temporaryValue;
    }
-
    return array;
  };
-
 
  // Gamer Moves and reducing stars
  function countMoves() {
    moves++;
    gamerMoves.innerHTML = moves;
-   if (moves == 10) {
+   if (moves == 8) {
      document.querySelector('.stars').firstElementChild.remove();
      stars--;
    }
-   if (moves == 20) {
+   if (moves == 16) {
+     document.querySelector('.stars').firstElementChild.remove();
+     stars--;
+   }
+   if (moves == 24) {
      document.querySelector('.stars').firstElementChild.remove();
      stars--;
    }
@@ -52,7 +55,6 @@
 
  // timer
  const timer = document.querySelector('.timer');
- // var stopwatch =document.getElementById('#stopwatch');
 
  function myTimer() {
    seconds++;
@@ -85,22 +87,19 @@
    moves = 0;
    gamerMoves.innerHTML = "0";
 
-   var node = document.createElement("LI");
-   var child = document.createElement("i");
-   child.className = "fa fa-star";
-
-   node.appendChild(child);
-   for (var i = stars; i < 3; i++) {
-     if (stars < 3) {
-       document.querySelector('.stars').appendChild(node);
-       stars++;
-     }
+   for (stars; stars < 3; stars++) {
+     var node = document.createElement("li");
+     var child = document.createElement("i");
+     child.className = "fa fa-star";
+     node.appendChild(child);
+     document.querySelector('.stars').appendChild(node);
    }
    minutes = 0;
    seconds = 0;
    var timer = document.querySelector('.timer');
    timer.innerHTML = "00:00";
    clearInterval(totalTime);
+   matchedCards = [];
    count();
  }
 
@@ -116,7 +115,6 @@
        unmatched();
      }
    }
-
  }
 
  var flip = function() {
@@ -135,14 +133,17 @@
 
  // if cards match
  function matched() {
-   flipped[0].classList.remove("animated", "flipInY", "disabled");
-   flipped[1].classList.remove("animated", "flipInY", "disabled");
+   flipped[0].classList.remove("animated", "flipInY");
+   flipped[1].classList.remove("animated", "flipInY");
    flipped[0].classList.add("animated", "rubberBand");
    flipped[1].classList.add("animated", "rubberBand");
    flipped[0].classList.add("match");
    flipped[1].classList.add("match");
    flipped[0].classList.remove("show", "open", "flipInY");
    flipped[1].classList.remove("show", "open", "flipInY");
+   matchedCards.push(flipped[0]);
+   matchedCards.push(flipped[1]);
+
    for (var i = 0; i < cards.length; i++) {
      card = cards[i];
      card.classList.add("disabled");
@@ -152,13 +153,11 @@
      flipped[1].classList.remove("show", "open", "unmatched", "animated", "flipInY", "shake", "rubberBand");
      for (var i = 0; i < cards.length; i++) {
        card = cards[i];
-       if (flipped[0] != cards[i]) {
-         card.classList.remove("disabled");
-       }
-       if (flipped[1] != cards[i]) {
-         card.classList.remove("disabled");
-       }
+       card.classList.remove("disabled");
      }
+     matchedCards.forEach(function(item) {
+       item.classList.add("disabled");
+     });
      flipped = [];
    }, 1000);
  }
@@ -174,6 +173,7 @@
      card = cards[i];
      card.classList.add("disabled");
    }
+
    setTimeout(function() {
      flipped[0].classList.remove("show", "open", "unmatched", "disabled", "animated", "flipInY", "shake");
      flipped[1].classList.remove("show", "open", "unmatched", "disabled", "animated", "flipInY", "shake");
@@ -181,6 +181,9 @@
        card = cards[i];
        card.classList.remove("disabled");
      }
+     matchedCards.forEach(function(item) {
+       item.classList.add("disabled");
+     });
      flipped = [];
    }, 1000);
  }
@@ -193,10 +196,12 @@
  // all cards are matched, Modal opens, Results are displayed
  function gameOver() {
    if (pairCard.length == 16) {
-     modal.classList.toggle("show-modal");
-     resultTotalStars.innerHTML = stars;
-     resultPersonal.innerHTML = moves;
-     resultTime.innerHTML = display;
+     setTimeout(function() {
+       modal.classList.toggle("show-modal");
+       resultTotalStars.innerHTML = stars;
+       resultPersonal.innerHTML = moves;
+       resultTime.innerHTML = display;
+     }, 1500);
    };
  }
  // playAgain Button closes Modal and restarts the game
