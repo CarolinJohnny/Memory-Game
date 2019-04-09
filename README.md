@@ -1,22 +1,15 @@
 # Memory Game Project
 
-## Table of Contents
+This is the second project in my Front-End Web Developer Nanodegree Program of Udacity. We needed to convert this project from a static project to an interactive one. This required modifying the HTML and CSS files, but primarily the JavaScript file.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## How the Game works
 
-
-
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
+You will have to flip cards to find a matching pair. When all cards match you win the game. A Modal Popup will show you how many stars are left and how much time you needed to finish the game. You have the possibility to play the game again or reset the game.
 
 
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+
+
+
