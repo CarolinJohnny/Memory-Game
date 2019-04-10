@@ -9,13 +9,13 @@
  let seconds = 0;
  var totalTime;
 
- const gamerMoves = document.querySelector('.moves');
+ const gamerMoves = document.querySelector(".moves");
 
  let stars = 3;
  let moves = document.getElementById('#moves');
- let resultTotalStars = document.querySelector('.totalStars');
- let resultPersonal = document.querySelector('.personal');
- let resultTime = document.querySelector('.watch');
+ let resultTotalStars = document.querySelector(".totalStars");
+ let resultPersonal = document.querySelector(".personal");
+ let resultTime = document.querySelector(".watch");
 
  let pairCard = document.getElementsByClassName("match");
  document.body.onload = startGame();
@@ -40,21 +40,21 @@
    moves++;
    gamerMoves.innerHTML = moves;
    if (moves == 8) {
-     document.querySelector('.stars').firstElementChild.remove();
+     document.querySelector(".stars").firstElementChild.remove();
      stars--;
    }
    if (moves == 16) {
-     document.querySelector('.stars').firstElementChild.remove();
+     document.querySelector(".stars").firstElementChild.remove();
      stars--;
    }
    if (moves == 24) {
-     document.querySelector('.stars').firstElementChild.remove();
+     document.querySelector(".stars").firstElementChild.remove();
      stars--;
    }
  }
 
  // timer
- const timer = document.querySelector('.timer');
+ const timer = document.querySelector(".timer");
 
  function myTimer() {
    seconds++;
@@ -70,8 +70,6 @@
  function count() {
    totalTime = setTimeout(myTimer, 1000);
  }
-
-
 
  /* function to start game, shuffle cards, reset moves, reset stars,
   reset timer */
@@ -96,13 +94,12 @@
    }
    minutes = 0;
    seconds = 0;
-   var timer = document.querySelector('.timer');
+   var timer = document.querySelector(".timer");
    timer.innerHTML = "00:00";
    clearInterval(totalTime);
    matchedCards = [];
    count();
  }
-
 
  function resultMove() {
    flipped.push(this);
